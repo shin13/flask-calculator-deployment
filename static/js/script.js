@@ -16,8 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({weight: weight}),
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Received data:', data); // Log the received data
                 updateTable(data);
                 resultDisplay.textContent = '計算完成，請查看表格結果。';
                 resultDisplay.style.display = 'block';
@@ -70,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 添加一個簡單的動畫效果
+    // Add a simple animation effect
     const title = document.querySelector('h1');
     if (title) {
         title.addEventListener('mouseover', function() {
@@ -82,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 添加一個簡單的返回頂部功能
+// Add a simple back to top feature
 window.onscroll = function() {
     const backToTopButton = document.getElementById('back-to-top');
     if (backToTopButton) {

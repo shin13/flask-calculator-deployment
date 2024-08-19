@@ -30,12 +30,13 @@
                 <p>伺服器計算結果僅供參考，更多兒科劑量資訊，請查閱仿單或藥物資料庫。 {{ result }}</p>
             </div>
         {% endif %}
+        
         <div class="table-container">
             <table id="medicines-table">
                 <thead>
                     <tr>
-                        <th class="sticky-header">藥品代碼</th>
-                        <th class="sticky-header">商品英文名稱</th>
+                        <th>藥品代碼</th>
+                        <th>商品英文名稱</th>
                         <th>商品學名</th>
                         <th>主成份含量(mg/mL)</th>
                         <th>次成份含量(mg/mL)</th>
@@ -50,25 +51,30 @@
                 <tbody>
                     {% for medicine in medicines %}
                     <tr>
-                        <th class="sticky-column">{{ medicine.drug_code }}</td>
-                        <th class="sticky-column">{{ medicine.english_name }}</td>
+                        <td>{{ medicine.drug_code }}</td>
+                        <td>{{ medicine.english_name }}</td>
                         <td>{{ medicine.generic_name }}</td>
                         <td>{{ medicine.main_ingredient_content }}</td>
                         <td>{{ medicine.secondary_ingredient_content }}</td>
                         <td>{{ medicine.max_daily_mg }}</td>
                         <td>{{ medicine.lowest_dose_kg }} to {{ medicine.highest_dose_kg }}</td>
                         <td>{{ medicine.frequency }}</td>
+                        <!-- You might want to dynamically fill these calculated values with JavaScript -->
                         <td class="calculated-value" data-field="daily_max_ml"></td>
                         <td class="calculated-value" data-field="single_dose_min_ml"></td>
                         <td class="calculated-value" data-field="single_dose_max_ml"></td>
                     </tr>
                     {% endfor %}
-                </tbody>
+                </tbody>                
             </table>
         </div>
     </div>
 
     <button id="back-to-top" onclick="scrollToTop()" style="display: none;">TOP</button>
+    
+    <footer>
+        <p>Copyright © 2024. Rights Reserved. Made with ❤️ by Shin Li. </p>
+    </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

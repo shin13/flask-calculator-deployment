@@ -6,6 +6,10 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column; /* Set body as a column flex container */
+    justify-content: space-between; /* Distribute space to push footer to the bottom */
+    min-height: 100vh; /* Make the body cover the full height of the viewport */
 }
 
 .container {
@@ -14,6 +18,7 @@ body {
     margin: auto;
     overflow: hidden;
     padding: 20px;
+    flex: 1; /* Let content area grow as needed, pushing footer to bottom */
 }
 
 /* 標題樣式 */
@@ -32,13 +37,13 @@ h1:hover {
 nav {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 15px 20px;
     transition: background-color 0.3s ease;
 }
 
@@ -96,8 +101,9 @@ button:hover {
 /* 表格樣式 */
 .table-container {
     overflow: auto;
-    position: relative;
+    /* position: relative; */
     max-width: 100%;
+    /* height: 80vh; */
 }
 
 table {
@@ -106,40 +112,20 @@ table {
     margin-top: 20px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    /* height: 80vh; */
 }
 
 th, td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    min-width: 70px; /* Ensure enough space */
-    background-color: #fff;
 }
 
 th {
     background-color: #f2f2f2;
     font-weight: bold;
-}
-
-/* Sticky header for the first row */
-.sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: #f2f2f2; /* Color to distinguish */
-}
-
-/* Sticky columns for the first and second column */
-.sticky-column {
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    background-color: #fff;
-}
-
-.sticky-column:nth-child(2) {
-    left: 70px; /* Adjust based on the first column's width */
-    z-index: 6;  /* Ensure this column appears on top of others */
 }
 
 tr:hover {
@@ -173,6 +159,22 @@ tr:hover {
 #back-to-top:hover {
     background: #555;
 }
+
+footer {
+    /* background-color: #333; */
+    background-color: rgba(51, 51, 51, 0.9);  /* 0.5 is 50% transparency */
+    color: lightgray;
+    height: 50px;
+    width: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 16px;
+    margin-top: auto;
+}
+
 
 /* 響應式設計 */
 @media (max-width: 768px) {
@@ -214,11 +216,6 @@ tr:hover {
     nav a {
         padding: 8px 10px;
     }
-    
-    .table-container {
-        margin-bottom: 20px;
-        border: 1px solid #ddd; /* Optional: Visual indicator for container edge */
-    }
 
     #back-to-top {
         width: 40px;
@@ -257,7 +254,6 @@ tr:hover {
 /* 額外的表格樣式，用於長表格 */
 .table-container {
     overflow-x: auto;
-    position: relative;
     margin-bottom: 20px;
 }
 

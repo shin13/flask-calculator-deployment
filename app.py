@@ -31,7 +31,6 @@ def calculator():
     db = get_db()
     cur = db.execute("SELECT * FROM medicines")
     medicines = cur.fetchall()
-
     return render_template("calculator.html", medicines=medicines)
 
 
@@ -45,7 +44,6 @@ def calculate():
     medicines = cur.fetchall()
 
     for medicine in medicines:
-        # Check if max_ml_per_kg_day is not None before doing the multiplication
         if medicine["max_ml_per_kg_day"] is not None:
             daily_max_ml = min(
                 weight * medicine["max_ml_per_kg_day"], medicine["max_daily_ml"]
@@ -65,4 +63,4 @@ def calculate():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
