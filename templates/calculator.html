@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算小工具</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">首頁</a>
+        <a href="{{ url_for('calculator') }}">計算小工具</a>
+    </nav>
+
+    <div class="container">
+        <h1>計算小工具</h1>
+        <form id="calculator-form" method="POST">
+            <label for="weight">請輸入體重(kg):</label>
+            <input type="number" id="weight" name="weight" step="0.1" required>
+            <button type="submit">送出計算</button>
+            <button type="button" id="clear-data" onclick="clearData()">清空數據</button>
+        </form>
+
+        <div id="result-display" class="result" style="display: none;">
+            <!-- JavaScript 將在這裡顯示結果 -->
+        </div>
+
+        {% if result is not none %}
+            <div class="result">
+                <p>伺服器計算結果僅供參考，更多兒科劑量資訊，請查閱仿單或藥物資料庫。 {{ result }}</p>
+            </div>
+        {% endif %}
+
+        <table id="medicines-table">
+            <thead>
+                <tr>
+                    <th>藥品代碼</th>
+                    <th>商品英文名稱</th>
+                    <th>商品學名</th>
+                    <th>主成份含量(mg/mL)</th>
+                    <th>次成份含量(mg/mL)</th>
+                    <th>日極量(mg)</th>
+                    <th>次極量(mg)</th>
+                    <th>給藥頻率</th>
+                    <th>每日極量(mL)</th>
+                    <th>次劑量下限(mL)</th>
+                    <th>次劑量上限(mL)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicine in medicines %}
+                <tr>
+                    <td>{{ medicine.drug_code }}</td>
+                    <td>{{ medicine.english_name }}</td>
+                    <td>{{ medicine.generic_name }}</td>
+                    <td>{{ medicine.main_ingredient_content }}</td>
+                    <td>{{ medicine.secondary_ingredient_content }}</td>
+                    <td>{{ medicine.max_daily_mg }}</td>
+                    <td>{{ medicine.lowest_dose_kg }} to {{ medicine.highest_dose_kg }}</td>
+                    <td>{{ medicine.frequency }}</td>
+                    <td class="calculated-value" data-field="daily_max_ml"></td>
+                    <td class="calculated-value" data-field="single_dose_min_ml"></td>
+                    <td class="calculated-value" data-field="single_dose_max_ml"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <button id="back-to-top" onclick="scrollToTop()" style="display: none;">TOP</button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

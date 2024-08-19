@@ -1,0 +1,8 @@
+﻿藥品代碼,商品英文名稱,商品學名,主成份單位含量（mg/mL）,次成份單位含量（mg/mL）,門住小兒每日極量/kg,門住小兒每次極量/kg,日極量,max_daily_mg,max_daily_ml,max_mg_per_kg_day,max_ml_per_kg_day,次極量,lowest_dose_kg,lowest_ml_kg,highest_dose_kg,highest_ml_kg,給藥頻率,次成分含量
+LANT,Anti-phen 24mg/mL 60mL,Acetaminophen,24,,4,0.7,75 mg/kg/day (<=4000 mg/day),4000,166.6666667,75,3.125,10 to 15 mg/kg/dose,10,0.416666667,15,0.625,every 4 to 6 hours,
+LAUG3,Augmentin syrup 457mg/5mL 35mL (7:1),Amoxicillin + Clavulanic Acid,80,11.4,1.5,0.7,1750 mg/day,1750,21.875,,,25 to 45 mg amoxicillin/kg/day,25,0.3125,45,0.5625,every 12 hours,
+LCUR,Curam susp 312.5mg/5mL 60mL (4:1),Amoxicillin + Clavulanic Acid,50,12.5,2.2,1.1,1500 mg/day,1500,30,,,20 to 40 mg amoxicillin/kg/day ,20,0.4,40,0.8,every 8 hours,
+LSOO,Soonmelt syrup 31.25mg/mL 100mL (4:1),Amoxicillin + Clavulanic Acid,25,6.25,1.6,0.53,1500 mg/day,1500,60,,,20 to 40 mg amoxicillin/kg/day ,20,0.8,40,1.6,every 8 hours,
+LAZI,Azithrom 40mg/mL 15mL suspension,Azithromycin,40,,0.8,0.8,1000 mg/dose,1000,25,,,5 to 20 mg/kg/dose,5,0.125,20,0.5,every 1 day to 1 week,
+LZIT,Zithromax 200mg/5mL suspension 15mL,Azithromycin,40,,0.8,0.8,1000 mg/dose,1000,25,,,5 to 20 mg/kg/dose,5,0.125,20,0.5,every 1 day to 1 week,
+LCEN,Centertheo 60mL (5.34mg/mL) liquid,Theophylline,5.34,,5,4,600 mg/day,600,112.3595506,20,3.745318352,5 to 20 mg/kg,5,0.936329588,16,2.996254682,every 4 to 6 hours,
