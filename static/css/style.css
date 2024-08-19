@@ -94,6 +94,12 @@ button:hover {
 }
 
 /* 表格樣式 */
+.table-container {
+    overflow: auto;
+    position: relative;
+    max-width: 100%;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -106,11 +112,34 @@ th, td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    min-width: 70px; /* Ensure enough space */
+    background-color: #fff;
 }
 
 th {
     background-color: #f2f2f2;
     font-weight: bold;
+}
+
+/* Sticky header for the first row */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f2f2f2; /* Color to distinguish */
+}
+
+/* Sticky columns for the first and second column */
+.sticky-column {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #fff;
+}
+
+.sticky-column:nth-child(2) {
+    left: 70px; /* Adjust based on the first column's width */
+    z-index: 6;  /* Ensure this column appears on top of others */
 }
 
 tr:hover {
@@ -185,6 +214,11 @@ tr:hover {
     nav a {
         padding: 8px 10px;
     }
+    
+    .table-container {
+        margin-bottom: 20px;
+        border: 1px solid #ddd; /* Optional: Visual indicator for container edge */
+    }
 
     #back-to-top {
         width: 40px;
@@ -223,6 +257,7 @@ tr:hover {
 /* 額外的表格樣式，用於長表格 */
 .table-container {
     overflow-x: auto;
+    position: relative;
     margin-bottom: 20px;
 }
 
