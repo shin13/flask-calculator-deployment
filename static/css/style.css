@@ -164,14 +164,14 @@ footer {
     /* background-color: #333; */
     background-color: rgba(51, 51, 51, 0.9);  /* 0.5 is 50% transparency */
     color: lightgray;
-    height: 50px;
+    height: 40px;
     width: auto;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2px;
-    font-size: 16px;
+    font-size: 12px;
     margin-top: auto;
 }
 
@@ -192,6 +192,9 @@ footer {
 
     input[type="number"], button {
         font-size: 16px;
+    }
+    footer {
+        font-size: 10px;
     }
 }
 
@@ -222,6 +225,9 @@ footer {
         height: 40px;
         line-height: 40px;
         font-size: 16px;
+    }
+    footer {
+        font-size: 10px;
     }
 }
 
